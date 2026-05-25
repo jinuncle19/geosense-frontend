@@ -72,7 +72,8 @@ export default function Dashboard() {
     if (!file) return
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const shpjs = await import('shpjs') as any
+// @ts-ignore
+const shpjs = await import('shpjs')
       const buffer = await file.arrayBuffer()
       const geojson = await (shpjs as any).default(buffer)
       if ((window as any).__setMapAOI) (window as any).__setMapAOI(geojson)
